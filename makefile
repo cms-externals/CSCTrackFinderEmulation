@@ -1,5 +1,5 @@
-CC=g++
-CFLAGS=-c -Wall -fPIC
+CXX=g++
+CXXFLAGS=-c -Wall -fPIC -O1
 LDFLAGS=-shared
 BASE_DIR=L1Trigger/CSCTrackFinder/
 SOURCE_DIR=$(BASE_DIR)/src
@@ -23,4 +23,4 @@ install: all
 	rsync -a $(DATA_DIR) $(INSTALL_DIR)/data/$(BASE_DIR)
 
 $(TARGET): $(SOURCES)
-	$(CC) -I$(INC_DIR) $(CFLAGS) $(LDFLAGS) $< -o $@
+	$(CXX) -I$(INC_DIR) $(CXXFLAGS) $(LDFLAGS) $< -o $@
