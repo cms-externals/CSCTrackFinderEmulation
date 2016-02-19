@@ -1,10 +1,10 @@
 CXX=g++
-CXXFLAGS=-c -Wall -fPIC -O1
+CXXFLAGS=-Wall -fPIC -O1
 LDFLAGS=-shared
-BASE_DIR=L1Trigger/CSCTrackFinder/
+BASE_DIR=L1Trigger/CSCTrackFinder
 SOURCE_DIR=$(BASE_DIR)/src
 DATA_DIR=$(BASE_DIR)/data
-SOURCES=$(wildcard $(SOURCE_DIR)/core_*/*.cpp)
+SOURCES=$(shell find . -name '*.cpp')
 INC_DIR=$(CURDIR)/include
 LOCAL_LIB=lib64
 TARGET=$(LOCAL_LIB)/libCSCTrackFinderEmulation.so
@@ -23,4 +23,4 @@ install: all
 	rsync -a $(DATA_DIR) $(INSTALL_DIR)/data/$(BASE_DIR)
 
 $(TARGET): $(SOURCES)
-	$(CXX) -I$(INC_DIR) $(CXXFLAGS) $(LDFLAGS) $< -o $@
+	$(CXX) -I$(INC_DIR) $(CXXFLAGS) -o $@ $(LDFLAGS) $^
