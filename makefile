@@ -1,5 +1,5 @@
 CXX=g++
-CXXFLAGS=-Wall -fPIC -O1
+CXXFLAGS=-Wall -fPIC -O2 -pthread -pipe -std=c++14 -msse3 -ftree-vectorize -fvisibility-inlines-hidden -fno-math-errno -fipa-pta -felide-constructors
 LDFLAGS=-shared
 BASE_DIR=L1Trigger/CSCTrackFinder
 SOURCE_DIR=$(BASE_DIR)/src
