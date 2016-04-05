@@ -1,6 +1,12 @@
 CXX:=g++
-CXXFLAGS:=-Wall -fPIC -O2 -pthread -pipe -std=c++14 -msse3 -ftree-vectorize -fvisibility-inlines-hidden -fno-math-errno -fipa-pta -felide-constructors
+CXXFLAGS:=-Wall -fPIC -O2 -pthread -pipe -std=c++14 -ftree-vectorize -fvisibility-inlines-hidden -fno-math-errno -fipa-pta -felide-constructors
 LDFLAGS:=-shared
+
+UNAME_P := $(shell uname -p)
+ifeq ($(UNAME_P),x86_64)
+CXXFLAGS+=-msse3
+endif
+
 UNAME_S := $(shell uname -s)
 SHAREDSUFFIX := so
 ifeq ($(UNAME_S),Darwin)
