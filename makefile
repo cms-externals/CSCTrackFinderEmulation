@@ -1,5 +1,5 @@
-CXX:=g++
-CXXFLAGS:=-Wall -fPIC -O2 -pthread -pipe -std=c++14 -ftree-vectorize -fvisibility-inlines-hidden -fno-math-errno -fipa-pta -felide-constructors
+CXX:=c++
+CXXFLAGS:=-Wall -fPIC -O1 -pthread -pipe -std=c++14 -ftree-vectorize -fvisibility-inlines-hidden -fno-math-errno -fipa-pta -felide-constructors
 LDFLAGS:=-shared
 
 UNAME_P := $(shell uname -p)
