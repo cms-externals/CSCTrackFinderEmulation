@@ -1,11 +1,8 @@
 #include "FWCore/ParameterSet/interface/FileInPath_wrapper.h"
-#include "FWCore/ParameterSet/interface/FileInPath.h"
+#include <cstdlib>
 
 std::string FileInPath_wrapper(const char *r)
 {
-  edm::FileInPath *fpath = new edm::FileInPath(r);
-  std::string fullpath(fpath->fullPath());
-  delete fpath;
-  return fullpath;
+  std::string fullPath(getenv("CSC_TRACK_FINDER_DATA_DIR"));
+  return fullPath+r;
 }
-
